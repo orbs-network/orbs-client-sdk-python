@@ -1,9 +1,5 @@
 #!/bin/bash -e
 
-pushd ../crypto-sdk
-    ./build.sh
-popd
-
 if [ -n "${DEBUG}" ] ; then
     BUILD_TYPE=Debug
 else
@@ -17,7 +13,7 @@ fi
 case "${SYSNAME}" in
     Darwin)
         export PLATFORM="mac"
-        LOCAL_LIBRARY="${PLATFORM}/lib/libcryptosdk.dylib"
+        LOCAL_LIBRARY="${PLATFORM}/libcryptosdk.dylib"
 
         PYTHON_VERSION=`python -c "import sys;t='{v[0]}.{v[1]}'.format(v=list(sys.version_info[:2]));sys.stdout.write(t)";`
         PYTHON_LIBRARY=/usr/local/Frameworks/Python.framework/Versions/${PYTHON_VERSION}/lib/libpython${PYTHON_VERSION}.dylib
@@ -28,7 +24,7 @@ case "${SYSNAME}" in
         ;;
     Linux)
         export PLATFORM="linux"
-        LOCAL_LIBRARY="${PLATFORM}/lib/libcryptosdk.so"
+        LOCAL_LIBRARY="${PLATFORM}/libcryptosdk.so"
 
         ;;
     *)
@@ -41,7 +37,7 @@ esac
 echo "Building ${BUILD_TYPE} version for ${PLATFORM:-$(uname -s)}..."
 
 # Copy external crypto-sdk dependencies.
-CRYPTO_SDK_BUILD_DIR=../crypto-sdk/build
+CRYPTO_SDK_BUILD_DIR=native
 
 mkdir -p build/${PLATFORM}
 cp -f ${CRYPTO_SDK_BUILD_DIR}/${LOCAL_LIBRARY} build/${PLATFORM}/

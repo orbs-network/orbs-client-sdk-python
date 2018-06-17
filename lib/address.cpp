@@ -1,7 +1,7 @@
 #include <boost/python.hpp>
 
-#include "../../crypto-sdk/lib/address.h"
-#include "../../crypto-sdk/lib/utils.h"
+#include "../native/headers/address.h"
+#include "../native/headers/utils.h"
 
 using namespace std;
 using namespace boost::python;
