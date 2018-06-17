@@ -2,10 +2,10 @@
 
 from subprocess import call
 
-import setuptools.command.build_py
+import setuptools.command.build_ext
 from setuptools import setup, find_packages
 
-class BuildPyCommand(setuptools.command.build_py.build_py):
+class BuildExtCommand(setuptools.command.build_ext.build_ext):
   """Custom build command."""
 
   def run(self):
@@ -13,20 +13,18 @@ class BuildPyCommand(setuptools.command.build_py.build_py):
     call(["./download-crypto-sdk.sh"])
     call(["./build.sh"])
 
-    setuptools.command.build_py.build_py.run(self)
+    setuptools.command.build_ext.build_ext.run(self)
 
 
 setup(
     cmdclass={
-        'build_py': BuildPyCommand,
+        'build_ext': BuildExtCommand,
     },
-    packages=find_packages('src'),  # include all packages under src
-    package_dir={'':'src'},   # tell distutils packages are under src
     include_package_data=True,    # include everything in source control
     name = 'orbs-client-sdk',
     version = '0.1.0',
     description = 'Orbs Client SDK',
     author = 'Kirill Maksimov',
     author_email = 'kirill@orbs.com',
-    url = 'https://github.com/orbs-network/orbs-client-sdk-python'
+    # url = 'https://github.com/orbs-network/orbs-client-sdk-python'
 )
