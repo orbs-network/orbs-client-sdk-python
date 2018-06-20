@@ -17,6 +17,7 @@ target_include_directories(pycrypto PUBLIC
     ${Boost_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
 )
+
 target_link_libraries(pycrypto LINK_PUBLIC
     ${CRYPTO_SDK_LIBRARY}
     ${Boost_LIBRARIES}

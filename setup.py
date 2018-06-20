@@ -17,10 +17,10 @@ class BuildPyCommand(setuptools.command.build_py.build_py):
 
 
 setup(
-    cmdclass={
+    cmdclass = {
         "build_py": BuildPyCommand,
     },
-    include_package_data=True,    # include everything in source control
+    include_package_data = True,    # include everything in source control
     name = "orbs-client-sdk",
     version = "0.1.0",
     description = "Orbs Client SDK",
