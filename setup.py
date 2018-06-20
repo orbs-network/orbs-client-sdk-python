@@ -24,9 +24,8 @@ setup(
     name = "orbs-client-sdk",
     version = "0.1.0",
     description = "Orbs Client SDK",
-    author = "Kirill Maksimov",
-    author_email = "kirill@orbs.com",
+    author = "Orbs Team",
     packages = ["orbs_client"],
     install_requires = ["requests"],
-    # url = "https://github.com/orbs-network/orbs-client-sdk-python"
+    url = "https://github.com/orbs-network/orbs-client-sdk-python"
 )
