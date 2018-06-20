@@ -51,6 +51,14 @@ make
 popd
 
 cp -f build/${PLATFORM}/lib/pycrypto.so orbs_client/
+cp -f native/${LOCAL_LIBRARY} build/orbs_client
+
+mkdir -p build/lib/orbs_client
+cp -f build/${PLATFORM}/lib/pycrypto.so build/lib/orbs_client
+cp -f native/${LOCAL_LIBRARY} build/lib/orbs_client
+
+rm -rf build/lib/CMakeFiles
+
 # cp -f build/${PLATFORM}/lib/pycrypto.so test/
 
 ./test.sh
