@@ -8,9 +8,9 @@ file(GLOB CRYPTO_SDK_SRC
 PYTHON_ADD_MODULE(pycrypto ${CRYPTO_SDK_SRC})
 
 if(APPLE)
-    set(CRYPTO_SDK_LIBRARY ${CMAKE_SOURCE_DIR}/build/${PLATFORM}/libcryptosdk.dylib)
+    set(CRYPTO_SDK_LIBRARY ${CMAKE_SOURCE_DIR}/orbs_client/libcryptosdk.dylib)
 else()
-    set(CRYPTO_SDK_LIBRARY ${CMAKE_SOURCE_DIR}/build/${PLATFORM}/libcryptosdk.so)
+    set(CRYPTO_SDK_LIBRARY ${CMAKE_SOURCE_DIR}/orbs_client/libcryptosdk.so)
 endif()
 
 target_include_directories(pycrypto PUBLIC

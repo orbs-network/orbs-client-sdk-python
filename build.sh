@@ -36,12 +36,7 @@ esac
 
 echo "Building ${BUILD_TYPE} version for ${PLATFORM:-$(uname -s)}..."
 
-# Copy external crypto-sdk dependencies.
-CRYPTO_SDK_BUILD_DIR=native
-
-mkdir -p build/${PLATFORM}
-cp -f ${CRYPTO_SDK_BUILD_DIR}/${LOCAL_LIBRARY} build/${PLATFORM}/
-
+mkdir -p build
 pushd build
 
 (cd ../ && CMAKE_ONLY=1 ./clean.sh)
@@ -50,15 +45,8 @@ make
 
 popd
 
+mkdir -p orbs_client/
 cp -f build/${PLATFORM}/lib/pycrypto.so orbs_client/
-cp -f native/${LOCAL_LIBRARY} build/orbs_client
-
-mkdir -p build/lib/orbs_client
-cp -f build/${PLATFORM}/lib/pycrypto.so build/lib/orbs_client
-cp -f native/${LOCAL_LIBRARY} build/lib/orbs_client
-
-rm -rf build/lib/CMakeFiles
-
-# cp -f build/${PLATFORM}/lib/pycrypto.so test/
+cp -f native/${LOCAL_LIBRARY} orbs_client/
 
 ./test.sh
