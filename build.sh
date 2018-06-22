@@ -36,6 +36,10 @@ esac
 
 echo "Building ${BUILD_TYPE} version for ${PLATFORM:-$(uname -s)}..."
 
+OUTPUT_DIR="orbs_client"
+mkdir -p ${OUTPUT_DIR}
+cp -f native/${LOCAL_LIBRARY} ${OUTPUT_DIR}/
+
 mkdir -p build
 pushd build
 
@@ -45,8 +49,6 @@ make
 
 popd
 
-mkdir -p orbs_client/
-cp -f build/${PLATFORM}/lib/pycrypto.so orbs_client/
-cp -f native/${LOCAL_LIBRARY} orbs_client/
+cp -f build/${PLATFORM}/lib/pycrypto.so ${OUTPUT_DIR}/
 
 ./test.sh
