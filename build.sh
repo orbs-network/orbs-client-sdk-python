@@ -51,4 +51,12 @@ popd
 
 cp -f build/${PLATFORM}/lib/pycrypto.so ${OUTPUT_DIR}/
 
+# For PIP, DO NOT DELETE
+
+mkdir -p build/lib/orbs_client
+cp -f build/${PLATFORM}/lib/pycrypto.so build/lib/orbs_client
+cp -f native/${LOCAL_LIBRARY} build/lib/orbs_client
+
+# End PIP
+
 ./test.sh
