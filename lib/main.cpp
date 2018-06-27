@@ -1,6 +1,6 @@
 #include <boost/python.hpp>
 
-#include "../../crypto-sdk/lib/crypto.h"
+#include "../native/headers/crypto.h"
 
 using namespace boost::python;
 using namespace Orbs;
