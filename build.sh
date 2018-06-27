@@ -49,6 +49,23 @@ make
 
 popd
 
+case "${SYSNAME}" in
+    Darwin)
+        install_name_tool -change "@rpath/libcryptosdk.dylib" "@loader_path/libcryptosdk.dylib" build/${PLATFORM}/lib/pycrypto.so
+
+        ;;
+    Linux)
+        echo "Unsupported system ${SYSNAME}!"
+        exit 1
+
+        ;;
+    *)
+        echo "Unsupported system ${SYSNAME}!"
+        exit 1
+
+        ;;
+esac
+
 cp -f build/${PLATFORM}/lib/pycrypto.so ${OUTPUT_DIR}/
 
 # For PIP, DO NOT DELETE
