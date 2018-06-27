@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -xe
 
 if [ -n "${DEBUG}" ] ; then
     BUILD_TYPE=Debug
@@ -55,8 +55,7 @@ case "${SYSNAME}" in
 
         ;;
     Linux)
-        echo "Unsupported system ${SYSNAME}!"
-        exit 1
+        chrpath -r '$ORIGIN' build/${PLATFORM}/lib/pycrypto.so
 
         ;;
     *)
@@ -70,9 +69,26 @@ cp -f build/${PLATFORM}/lib/pycrypto.so ${OUTPUT_DIR}/
 
 # For PIP, DO NOT DELETE
 
-mkdir -p build/lib/orbs_client
-cp -f build/${PLATFORM}/lib/pycrypto.so build/lib/orbs_client
-cp -f native/${LOCAL_LIBRARY} build/lib/orbs_client
+case "${SYSNAME}" in
+    Darwin)
+        export PYTHON_BUILD_LIB_PACKAGE=build/lib/orbs_client
+
+        ;;
+    Linux)
+        export PYTHON_BUILD_LIB_PACKAGE=build/lib.linux-x86_64-2.7/orbs_client
+
+        ;;
+    *)
+        echo "Unsupported system ${SYSNAME}!"
+        exit 1
+
+        ;;
+esac
+
+mkdir -p ${PYTHON_BUILD_LIB_PACKAGE}
+
+cp -f build/${PLATFORM}/lib/pycrypto.so ${PYTHON_BUILD_LIB_PACKAGE}
+cp -f native/${LOCAL_LIBRARY} ${PYTHON_BUILD_LIB_PACKAGE}
 
 # End PIP
 
