@@ -10,9 +10,6 @@ class BuildPyCommand(setuptools.command.build_py.build_py):
   """Custom build command."""
 
   def run(self):
-    call(["./download-crypto-sdk.sh"])
-    call(["./build.sh"])
-
     setuptools.command.build_py.build_py.run(self)
 
 
