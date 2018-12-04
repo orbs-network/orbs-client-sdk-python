@@ -8,15 +8,15 @@
 
     ```python
     import orbs
-    sender = orbs.create_account();
-    receiver = orbs.create_account();
+    sender = orbs.create_account()
+    receiver = orbs.create_account()
     ```
     
 2. Create a client instance:
 
     ```python
-    virtual_chain_Id = 42;
-    client = orbs.client("http://node-endpoint.com", virtual_chain_Id, "TEST_NET");
+    virtual_chain_Id = 42
+    client = orbs.client("http://node-endpoint.com", virtual_chain_Id, "TEST_NET")
     ```
 
 3. Send a transaction:
@@ -27,15 +27,15 @@
       sender.private_key,
       "BenchmarkToken",
       "transfer"
-    );
-    response = client.send_transaction(payload);
+    )
+    response = client.send_transaction(payload)
     ```
     
 4. Check the transaction status:
 
     ```python
-    payload = client.create_get_transaction_status_payload(tx_id);
-    response = client.get_transaction_status(payload);
+    payload = client.create_get_transaction_status_payload(tx_id)
+    response = client.get_transaction_status(payload)
     ```
     
 5. Call a smart contract method:
@@ -45,8 +45,8 @@
       receiver.public_key,
       "BenchmarkToken",
       "getBalance"
-    );
-    response = client.call_method(payload);
+    )
+    response = client.call_method(payload)
     ```
 
 ## Installation
