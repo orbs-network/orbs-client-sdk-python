@@ -1,3 +1,3 @@
 #!/bin/bash -e
 
-find test -name '*.py' -exec python '{}' \;
+find test -name '*.py' -exec python3 '{}' \;

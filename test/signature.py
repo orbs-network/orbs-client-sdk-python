@@ -1,10 +1,10 @@
 import unittest
 from os import sys, path
-sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 from crypto.signature import Signature
+sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 
-class TestKeysFunctions(unittest.TestCase):
+class TestSignatureFunctions(unittest.TestCase):
 
     def test_sign_ed25519(self):
         private_key = bytes.fromhex('3b24b5f9e6b1371c3b5de2e402a96930eeafe52111bb4a1b003e5ecad3fab53892d469d7c004cc0b24a192d9457836bf38effa27536627ef60718b00b0f33152')

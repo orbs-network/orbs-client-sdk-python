@@ -106,3 +106,5 @@ native
 *.dylib
 
 .idea/
+
+contract
