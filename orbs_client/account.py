@@ -10,8 +10,8 @@ class Account(NamedTuple):
     address: str
     raw_address: bytes
 
-    @staticmethod
-    def create_account():
-        private_key, public_key = Keys.generate_ed25519_key()
-        raw_address = Hash.calc_ripemd160_sha256(public_key)
-        return Account(public_key, private_key, Base58.encode(raw_address), raw_address)
+
+def create_account():
+    private_key, public_key = Keys.generate_ed25519_key()
+    raw_address = Hash.calc_ripemd160_sha256(public_key)
+    return Account(public_key, private_key, Base58.encode(raw_address), raw_address)

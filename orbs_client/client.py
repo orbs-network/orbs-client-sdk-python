@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Tuple
 from datetime import datetime
 import requests
 from codec.network_type import NetworkType
@@ -21,7 +21,7 @@ class Client:
         self.__virtual_chain_id = virtual_chain_id
         self.__network_type = network_type
 
-    def create_send_transaction_payload(self, public_key: bytes, private_key: bytes, contract_name: str, method_name: str, input_arguments: List[MethodArgument]):
+    def create_send_transaction_payload(self, public_key: bytes, private_key: bytes, contract_name: str, method_name: str, input_arguments: List[MethodArgument]) -> Tuple[bytes, str]:
         req, tx_id = encode_send_transaction_request(SendTransactionRequest(
             protocol_version=self.__PROTOCOL_VERSION,
             virtual_chain_id=self.__virtual_chain_id,
@@ -45,7 +45,7 @@ class Client:
             input_arguments=input_arguments))
 
     def create_get_transaction_status_payload(self, tx_id: str) -> bytes:
-        raw_tx_id = Base58.decode(bytes(tx_id))
+        raw_tx_id = Base58.decode(bytes(tx_id, 'utf-8'))
         return encode_get_transaction_status_request(GetTransactionStatusRequest(
             protocol_version=self.__PROTOCOL_VERSION,
             virtual_chain_id=self.__virtual_chain_id,
