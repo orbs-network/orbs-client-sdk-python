@@ -71,7 +71,7 @@ To make sure the client implementation is compliant to the Orbs protocol specifi
 The codec contract test requires an input and output JSON files which are located in https://github.com/orbs-network/orbs-client-sdk-go.git.
 
 To execute all tests, run the setup package with the test flag:
-
+1.
     ```sh
     python setup.py test
     ```
