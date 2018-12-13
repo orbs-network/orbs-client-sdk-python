@@ -1,2 +1,2 @@
-from http_client import HttpClient
-from contract import Contract
+from orbs_client.account import create_account
+from orbs_client.client import Client

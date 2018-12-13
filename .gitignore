@@ -104,3 +104,7 @@ venv.bak/
 
 native
 *.dylib
+
+.idea/
+
+contract

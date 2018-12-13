@@ -1,3 +1,3 @@
 #!/bin/bash -e
 
-find test -name '*.py' -exec python '{}' \;
+python3 -m unittest discover -p '*.py' -s ./test
