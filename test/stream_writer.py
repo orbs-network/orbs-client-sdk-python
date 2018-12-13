@@ -1,6 +1,6 @@
 import unittest
 from os import sys, path
-from streams.stream_writer import StreamWriter
+from codec.stream_writer import StreamWriter
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 

@@ -1,5 +1,5 @@
 import io
-from streams.types import FIELD_SIZES, FieldTypes, align_offset_to_type
+from codec.types import FIELD_SIZES, FieldTypes, align_offset_to_type
 
 
 class StreamReader:

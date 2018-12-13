@@ -6,8 +6,8 @@ from codec.request_status import RequestStatus, request_status_decode
 from codec.method_arguments import MethodArgument, method_arguments_opaque_decode
 from codec.date_time import unix_nano_to_date
 from crypto.digest import Digest
-from streams.stream_writer import StreamWriter
-from streams.stream_reader import StreamReader
+from codec.stream_writer import StreamWriter
+from codec.stream_reader import StreamReader
 
 
 class GetTransactionStatusRequest(NamedTuple):

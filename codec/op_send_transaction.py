@@ -9,8 +9,8 @@ from codec.date_time import date_to_unix_nano, unix_nano_to_date
 from crypto.keys import Keys
 from crypto.digest import Digest
 from crypto.signature import Signature
-from streams.stream_writer import StreamWriter
-from streams.stream_reader import StreamReader
+from codec.stream_writer import StreamWriter
+from codec.stream_reader import StreamReader
 
 
 class SendTransactionRequest(NamedTuple):

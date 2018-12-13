@@ -1,5 +1,5 @@
-from streams.stream_writer import StreamWriter
-from streams.stream_reader import StreamReader
+from codec.stream_writer import StreamWriter
+from codec.stream_reader import StreamReader
 from typing import Union, List
 
 
