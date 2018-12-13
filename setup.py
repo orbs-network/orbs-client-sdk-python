@@ -63,7 +63,8 @@ setup(
     install_requires=[
         'securesystemslib',
         'base58',
-        'requests'
+        'requests',
+        'PyNaCl'
     ],
     url='https://github.com/orbs-network/orbs-client-sdk-python',
     python_requires='>=3.7.0',
