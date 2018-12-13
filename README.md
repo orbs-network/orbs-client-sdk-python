@@ -3,14 +3,16 @@
 > Client SDK for the Orbs blockchain in Python
 
 ## Installation
+1. Clone this repo to a directory in your computer
 
-1. Install the package:
+2. Install the package:
 
     ```sh
     python setup.py install
     ```
+3. The package will be built in `./build/lib/orbs_client`
     
-2. Import the client-sdk in your project:
+4. Import the client-sdk in your project:
 
     ```python
     import orbs_client as orbs
